@@ -1,12 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Website</title>
+    <title>Psycholog DIM - Wsparcie dla dzieci i młodzieży</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset i style ogólne */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+
+        /* Nagłówek */
+        header {
+            background-color: #ffffff;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo span {
+            color: #3498db;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* Kontener główny */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        /* Sekcje */
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Lista usług */
+        .services-list {
+            list-style: none;
+        }
+
+        .services-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .services-list li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: #3498db;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Kontakt - Wyłącznie Email */
+        .contact-box {
+            text-align: center;
+            padding: 2rem;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .email-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Stopka */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #95a5a6;
+            font-size: 0.85rem;
+        }
+
+        /* Responsywność */
+        @media (max-width: 600px) {
+            .logo h1 { font-size: 1.8rem; }
+            section { padding: 1.5rem; }
+            .email-link { font-size: 1.1rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Simple Website</h1>
-    <p>This is a basic HTML structure.</p>
+
+    <header>
+        <div class="logo">
+            <h1>Psycholog <span>DIM</span></h1>
+            <p class="subtitle">Wsparcie psychologiczne dla dzieci i młodzieży</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="o-mnie">
+            <h2>O gabinecie</h2>
+            <p><strong>Psycholog DIM</strong> to miejsce stworzone z myślą o potrzebach dzieci oraz nastolatków. Oferuję profesjonalną pomoc psychologiczną, opartą na zaufaniu, empatii i indywidualnym podejściu do każdego młodego człowieka.</p>
+        </section>
+
+        <section id="oferta">
+            <h2>Zakres wsparcia</h2>
+            <ul class="services-list">
+                <li>Pomoc w radzeniu sobie z emocjami i stresem</li>
+                <li>Wsparcie w stanach lękowych i obniżonym nastroju</li>
+                <li>Budowanie poczucia własnej wartości</li>
+                <li>Rozwiązywanie trudności szkolnych i rówieśniczych</li>
+                <li>Konsultacje i poradnictwo dla rodziców</li>
+            </ul>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <div class="contact-box">
+                <p>W celu umówienia konsultacji lub zadania pytania, proszę o kontakt mailowy:</p>
+                <a href="mailto:info@psycholog-dim.pl" class="email-link">info@psycholog-dim.pl</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; Psycholog DIM - Dzieci i Młodzież. Wszelkie prawa zastrzeżone.
+    </footer>
+
 </body>
 </html>
