@@ -74,6 +74,15 @@ h2 {
     font-weight: 700;
 }
 
+.about-photo {
+    float: right;
+    max-width: 200px;
+    height: auto;
+    margin: 0 0 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
 p {
     margin-bottom: 1rem;
 }
@@ -135,4 +144,10 @@ footer {
     .page-title { font-size: 1.8rem; }
     section { padding: 1rem; }
     .email-link { font-size: 1.1rem; }
+    .about-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem auto;
+        max-width: 180px;
+    }
 }
