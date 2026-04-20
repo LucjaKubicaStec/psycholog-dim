@@ -8,6 +8,8 @@
 html {
     --primary-color: #1f949b;
     --background-color: #fef9f6;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,17 +19,16 @@ body {
     background: var(--background-color);
 }
 
-
-/* Nagłówek */
-header {
-    background-color: var(--background-color);
-    padding: 0rem 1rem;
-    text-align: center;
-}
-
 .logo-img {
     max-width: 300px;
     height: auto;
+    animation: pulse 10s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .title {
@@ -58,16 +59,17 @@ header {
 
 /* Hero */
 .hero {
-    background: transparent;
     text-align: center;
-    padding: 0 1rem;
-    border: none;
-    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
 }
 
 .hero .title {
     font-size: 3rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
 }
 
 .hero .subtitle {
@@ -75,27 +77,22 @@ header {
     color: #5a6c7d;
 }
 
-/* Separatory sekcji */
-.section-separator {
-    text-align: center;
-    margin: 0.5rem 0;
-    color: #d5e8f0;
-    font-size: 1.2rem;
+.scroll-arrow {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    animation: bounce 2s ease infinite;
+    display: none;
 }
 
-.section-separator i {
-    background: transparent;
-    padding: 0 1rem;
-    position: relative;
+.scroll-arrow:hover {
+    color: #16737a;
 }
 
-.section-separator::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d5e8f0, transparent);
-    position: relative;
-    top: 0.65rem;
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
 }
 
 /* Kontener główny */
@@ -112,6 +109,7 @@ section {
     margin-bottom: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    scroll-snap-align: start;
 }
 
 h2 {
@@ -254,6 +252,12 @@ footer {
 
 /* Responsywność */
 @media (max-width: 600px) {
+    .hero {
+        height: 100vh;
+    }
+    .scroll-arrow {
+        display: block;
+    }
     .page-title { font-size: 1.8rem; }
     .hero .title { font-size: 2.2rem; }
     section { padding: 1rem; }
