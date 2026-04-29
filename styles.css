@@ -222,6 +222,60 @@ p {
     text-decoration: underline;
 }
 
+.booking-box {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e7edf4;
+    border-radius: 12px;
+}
+
+.booking-form {
+    margin-top: 0.8rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.booking-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+
+.booking-form input,
+.booking-form select {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #ced9e5;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.booking-submit {
+    margin-top: 0.9rem;
+    border: none;
+    cursor: pointer;
+}
+
+.booking-feedback {
+    margin-top: 0.6rem;
+    color: #1a7f37;
+    min-height: 1.4rem;
+}
+
+.booking-feedback-error {
+    color: #a12727;
+}
+
 footer {
     background: linear-gradient(135deg, #25384b 0%, #2f4860 100%);
     text-align: center;
@@ -277,5 +331,9 @@ footer {
         float: none;
         display: block;
         margin: 0 auto 1rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 }
