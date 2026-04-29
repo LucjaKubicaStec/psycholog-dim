@@ -126,7 +126,10 @@
                 <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=ul.+Franciszka+Kami%C5%84skiego+19,+43-300+Bielsko-Bia%C5%82a" target="_blank" rel="noopener noreferrer" class="email-link">Bielsko-Biała, ul. Franciszka Kamińskiego 19</a></p>
                 <a href="mailto:info@psycholog-dim.pl?subject=Um%C3%B3wienie%20konsultacji" class="cta-button">Napisz, aby umówić konsultację</a>
             </div>
-   
+        </section>
+    </main>
+
+    <footer>
         <div class="footer-content">
             <p class="footer-brand"><i class="fas fa-heart"></i> Psycholog DiM</p>
             <p class="footer-tagline">Wsparcie psychologiczne dla dzieci i młodzieży</p>
@@ -149,82 +152,6 @@
             a.className = 'phone-link';
             a.textContent = num;
             el.appendChild(a);
-        })();
-
-        (function () {
-            var mondayHours = ['15:30', '16:30', '17:30', '18:30', '19:30'];
-            var fridayHours = ['14:30', '15:30', '16:30', '17:30', '18:30', '19:30'];
-            var slotSelect = document.getElementById('appointment-slot');
-            var bookingForm = document.getElementById('booking-form');
-            var feedback = document.getElementById('booking-feedback');
-
-            function pad(value) {
-                return value < 10 ? '0' + value : String(value);
-            }
-
-            function formatDate(date) {
-                return pad(date.getDate()) + '.' + pad(date.getMonth() + 1) + '.' + date.getFullYear();
-            }
-
-            function addSlotsForDate(date, hours, dayLabel) {
-                hours.forEach(function (hour) {
-                    var option = document.createElement('option');
-                    option.value = formatDate(date) + ' ' + hour;
-                    option.textContent = dayLabel + ' ' + formatDate(date) + ' – ' + hour;
-                    slotSelect.appendChild(option);
-                });
-            }
-
-            function generateSlots2026() {
-                for (var month = 0; month < 12; month++) {
-                    for (var day = 1; day <= 31; day++) {
-                        var currentDate = new Date(2026, month, day);
-                        if (currentDate.getMonth() !== month) {
-                            break;
-                        }
-                        var weekDay = currentDate.getDay();
-                        if (weekDay === 1) {
-                            addSlotsForDate(currentDate, mondayHours, 'Poniedziałek');
-                        } else if (weekDay === 5) {
-                            addSlotsForDate(currentDate, fridayHours, 'Piątek');
-                        }
-                    }
-                }
-            }
-
-            bookingForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-                if (!bookingForm.checkValidity()) {
-                    feedback.textContent = 'Uzupełnij wszystkie wymagane pola formularza.';
-                    feedback.classList.add('booking-feedback-error');
-                    return;
-                }
-
-                feedback.classList.remove('booking-feedback-error');
-                var firstName = document.getElementById('first-name').value.trim();
-                var lastName = document.getElementById('last-name').value.trim();
-                var email = document.getElementById('email').value.trim();
-                var phone = document.getElementById('phone').value.trim();
-                var slot = slotSelect.value;
-
-                var subject = 'Rezerwacja konsultacji - ' + slot;
-                var body = [
-                    'Dzień dobry,',
-                    '',
-                    'Proszę o zapisanie konsultacji w terminie: ' + slot,
-                    '',
-                    'Dane osoby zapisującej się:',
-                    'Imię: ' + firstName,
-                    'Nazwisko: ' + lastName,
-                    'E-mail: ' + email,
-                    'Telefon: ' + phone
-                ].join('\n');
-
-                window.location.href = 'mailto:info@psycholog-dim.pl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-                feedback.textContent = 'Wiadomość e-mail z danymi rezerwacji została przygotowana.';
-            });
-
-            generateSlots2026();
         })();
     </script>
 </body>
