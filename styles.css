@@ -125,6 +125,32 @@ h1 {
     background: #fff;
 }
 
+
+.page-hero {
+    min-height: 42vh;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-link:hover,
+.back-link:focus {
+    text-decoration: underline;
+}
+
+.rules-page-section {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container {
     width: min(1050px, calc(100% - 2rem));
     margin: 1.5rem auto 2.5rem;
