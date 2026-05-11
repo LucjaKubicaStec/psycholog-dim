@@ -195,6 +195,24 @@ p {
     line-height: 1;
 }
 
+.consultation-rules {
+    padding-left: 1.5rem;
+}
+
+.consultation-rules > li {
+    margin-bottom: 1rem;
+    padding-left: 0.3rem;
+}
+
+.consultation-rules > li::marker {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.consultation-rules .services-list {
+    margin-top: 0.4rem;
+}
+
 .contact-box {
     text-align: center;
     padding: 1.5rem;
