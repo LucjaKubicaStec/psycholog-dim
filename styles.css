@@ -320,6 +320,109 @@ p {
     color: #a12727;
 }
 
+.inline-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.inline-link:hover,
+.inline-link:focus {
+    text-decoration: underline;
+}
+
+.main-nav a[aria-current="page"] {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.adhd-page-section {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adhd-intro {
+    background: linear-gradient(135deg, #ffffff 0%, #eef9fa 100%);
+}
+
+.diagnosis-steps {
+    list-style: none;
+    counter-reset: diagnosis-step;
+    display: grid;
+    gap: 1rem;
+}
+
+.diagnosis-steps > li {
+    counter-increment: diagnosis-step;
+    position: relative;
+    padding: 1.2rem 1.2rem 1.2rem 4.2rem;
+    border: 1px solid #e7edf4;
+    border-radius: 14px;
+    background: #fbfdff;
+}
+
+.diagnosis-steps > li::before {
+    content: counter(diagnosis-step);
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.contact-list {
+    list-style: none;
+    display: grid;
+    gap: 0.45rem;
+    margin-top: 0.6rem;
+}
+
+.contact-list i {
+    color: var(--primary-color);
+    margin-right: 0.35rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.price-card {
+    padding: 1.4rem;
+    border: 1px solid #e2edf3;
+    border-radius: 14px;
+    background: #fbfdff;
+}
+
+.highlighted-price {
+    border-color: #b7dfe1;
+    background: #f2fbfc;
+}
+
+.price {
+    color: var(--primary-color);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.important-note {
+    border-color: #f1d6a8;
+    background: #fffaf1;
+}
+
+.important-note h2 {
+    color: #9a6515;
+}
+
 footer {
     background: linear-gradient(135deg, #25384b 0%, #2f4860 100%);
     text-align: center;
@@ -363,7 +466,8 @@ footer {
         justify-content: center;
     }
 
-    .grid-two {
+    .grid-two,
+    .pricing-grid {
         grid-template-columns: 1fr;
     }
 
@@ -379,5 +483,9 @@ footer {
 
     .form-grid {
         grid-template-columns: 1fr;
+    }
+
+    .diagnosis-steps > li {
+        padding: 4.1rem 1rem 1rem;
     }
 }
