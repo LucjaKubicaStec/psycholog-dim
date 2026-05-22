@@ -146,54 +146,6 @@
             </div>
         </section>
 
-        <section id="umow-wizyte">
-            <h2>Umów wizytę online</h2>
-            <div class="booking-box">
-                <p><strong>Krok 1:</strong> Wybierz termin i godzinę.</p>
-                <form id="booking-form" class="booking-form">
-                    <div class="form-grid">
-                        <label class="full-width" for="appointment-slot">* Termin i godzina
-                            <select id="appointment-slot" name="appointment_slot" required>
-                                <option value="">Wybierz dostępny termin</option>
-                                <option value="25.05.2026 16:30-17:20">25.05.2026 | 16:30-17:20</option>
-                                <option value="25.05.2026 17:30-18:20">25.05.2026 | 17:30-18:20</option>
-                                <option value="25.05.2026 18:30-19:20">25.05.2026 | 18:30-19:20</option>
-                                <option value="25.05.2026 19:30-20:20">25.05.2026 | 19:30-20:20</option>
-                                <option value="29.05.2026 13:30-14:20">29.05.2026 | 13:30-14:20</option>
-                                <option value="29.05.2026 14:30-15:20">29.05.2026 | 14:30-15:20</option>
-                                <option value="29.05.2026 15:30-16:20">29.05.2026 | 15:30-16:20</option>
-                                <option value="29.05.2026 17:30-18:20">29.05.2026 | 17:30-18:20</option>
-                                <option value="29.05.2026 18:30-19:20">29.05.2026 | 18:30-19:20</option>
-                                <option value="29.05.2026 19:30-20:20">29.05.2026 | 19:30-20:20</option>
-                                <option value="01.06.2026 16:30-17:20">01.06.2026 | 16:30-17:20</option>
-                                <option value="01.06.2026 17:30-18:20">01.06.2026 | 17:30-18:20</option>
-                                <option value="01.06.2026 18:30-19:20">01.06.2026 | 18:30-19:20</option>
-                                <option value="01.06.2026 19:30-20:20">01.06.2026 | 19:30-20:20</option>
-                            </select>
-                        </label>
-                    </div>
-
-                    <p><strong>Krok 2:</strong> Uzupełnij dane kontaktowe.</p>
-                    <div class="form-grid">
-                        <label for="first-name">* Imię
-                            <input type="text" id="first-name" name="first_name" required disabled>
-                        </label>
-                        <label for="last-name">* Nazwisko
-                            <input type="text" id="last-name" name="last_name" required disabled>
-                        </label>
-                        <label for="email">* E-mail
-                            <input type="email" id="email" name="email" required disabled>
-                        </label>
-                        <label for="phone">* Telefon
-                            <input type="tel" id="phone" name="phone" required disabled>
-                        </label>
-                    </div>
-                    <button type="submit" class="cta-button booking-submit" disabled>Wyślij zgłoszenie</button>
-                    <p id="booking-feedback" class="booking-feedback" aria-live="polite"></p>
-                </form>
-            </div>
-        </section>
-
         <section id="zasady-konsultacji">
             <h2>Zasady konsultacji</h2>
             <p>Szczegółowy opis zasad konsultacji terapeutycznej przed podjęciem terapii przez dziecko lub nastolatka jest dostępny na osobnej podstronie.</p>
@@ -225,64 +177,6 @@
             a.className = 'phone-link';
             a.textContent = num;
             el.appendChild(a);
-        })();
-
-        (function () {
-            var form = document.getElementById('booking-form');
-            if (!form) return;
-            var slotSelect = document.getElementById('appointment-slot');
-            var feedback = document.getElementById('booking-feedback');
-            var fields = form.querySelectorAll('input');
-            var submitButton = form.querySelector('button[type="submit"]');
-
-            slotSelect.addEventListener('change', function () {
-                var slotChosen = slotSelect.value !== '';
-                fields.forEach(function (field) {
-                    field.disabled = !slotChosen;
-                });
-                submitButton.disabled = !slotChosen;
-                feedback.textContent = slotChosen ? 'Termin wybrany. Uzupełnij dane i wyślij zgłoszenie.' : '';
-                feedback.classList.remove('booking-feedback-error');
-            });
-
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                if (!slotSelect.value) {
-                    feedback.textContent = 'Najpierw wybierz termin i godzinę.';
-                    feedback.classList.add('booking-feedback-error');
-                    return;
-                }
-
-                var firstName = document.getElementById('first-name').value.trim();
-                var lastName = document.getElementById('last-name').value.trim();
-                var email = document.getElementById('email').value.trim();
-                var phone = document.getElementById('phone').value.trim();
-
-                var subject = 'Nowa rezerwacja wizyty online';
-                var body = [
-                    'Zapisała się nowa osoba.',
-                    '',
-                    'Termin: ' + slotSelect.value,
-                    'Imię: ' + firstName,
-                    'Nazwisko: ' + lastName,
-                    'E-mail: ' + email,
-                    'Telefon: ' + phone
-                ].join('\n');
-
-                var mailtoLink = 'mailto:info@psycholog-dim.pl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-                window.location.href = mailtoLink;
-
-                var selectedOption = slotSelect.options[slotSelect.selectedIndex];
-                selectedOption.remove();
-                slotSelect.value = '';
-                fields.forEach(function (field) {
-                    field.disabled = true;
-                    field.value = '';
-                });
-                submitButton.disabled = true;
-                feedback.textContent = 'Zgłoszenie przygotowane. Wybrany termin został usunięty z listy.';
-                feedback.classList.remove('booking-feedback-error');
-            });
         })();
     </script>
 </body>
