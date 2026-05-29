@@ -5,6 +5,7 @@ Statyczna strona internetowa gabinetu psychologicznego oferującego wsparcie dla
 ## Zawartość projektu
 
 - `index.html` – główna strona z ofertą, kwalifikacjami i kontaktem.
+- `umow-wizyte.html` – podstrona rejestracji online z widgetem Medfile.
 - `styles.css` – style i układ responsywny.
 - `logo.png` i `Ja.jpg` – grafiki używane na stronie.
 - `CNAME` – konfiguracja domeny dla hostingu statycznego.
