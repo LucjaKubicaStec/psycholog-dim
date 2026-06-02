@@ -443,12 +443,22 @@ footer {
 }
 
 .footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     margin: 0.8rem 0;
 }
 
 .footer-contact a {
     color: #d8e4ee;
     font-size: 1.3rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-contact a:hover,
+.footer-contact a:focus {
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .footer-copy {
